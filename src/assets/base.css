@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --marine-blue: 213deg 96% 18%;
+    --purplish-blue: 243deg 100% 62%;
+    --pastel-blue: 228deg 100% 84%;
+    --light-blue: 206deg 94% 87%;
+    --strawberry-red: 354deg 84% 57%;
+    --cool-gray: 231deg 11% 63%;
+    --light-gray: 229deg 24% 87%;
+    --magnolia: 217deg 100% 97%;
+    --alabaster: 231deg 100% 99%;
+    --white: 0deg 0% 100%;
+  }
+}
