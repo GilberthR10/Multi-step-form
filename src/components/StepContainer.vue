@@ -1,13 +1,26 @@
 <script setup lang="ts">
-import AddOns from './Steps/AddOns.vue';
-import FinishingUp from './Steps/FinishingUp.vue';
-import PersonalInfo from './Steps/PersonalInfo.vue';
-import SelectPlan from './Steps/SelectPlan.vue';
-import Thank from './Steps/Thank.vue';
+import { ref } from "vue";
+import Navigation from './Navigation.vue';
+import { useSteps } from '../composables/steps';
+
+const { currentStep, stepsComponents } = useSteps()
+
 
 </script>
 <template>
-    <div>
+  <div class="border border-teal-500 px-2 w-full flex flex-col justify-between bg-magnolia md:bg-white" >
 
-    </div>
+    <KeepAlive>
+      <component :is="stepsComponents[currentStep]"  />
+    </KeepAlive>
+    <Navigation />
+  </div>
 </template>
+
+/*
+todo:
+base input
+como validar input con vue o librerias,
+
+
+*/

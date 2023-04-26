@@ -1,6 +1,6 @@
 <template>
     <div>   
-        Thank
+        Gracias
     </div>
 </template>
 
