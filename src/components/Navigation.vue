@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useSteps } from "@/composables/steps";
-import { ref, computed } from "vue";
+import { computed } from "vue";
 
 const { currentStep, setCurrentStep, stepComponentsLength } = useSteps();
 
@@ -21,7 +21,7 @@ const nextStep = () => {
 };
 </script>
 <template>
-  <div class="bg-white w-full flex justify-between items-center p-2">
+  <div class="bg-white w-full flex justify-between items-center px-2.5 py-5 fixed inset-0 top-auto shadow-md md:static md:shadow-none">
     <button
       v-show="disabledPrevStep"
       @click="prevStep"

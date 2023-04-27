@@ -1,28 +1,25 @@
 <script setup lang="ts">
-import Navigation from './Navigation.vue';
-import { useSteps } from '../composables/steps';
+import Navigation from "./Navigation.vue";
+import { useSteps } from "../composables/steps";
 
-const { currentStep, stepsComponents } = useSteps()
-
-
+const { currentStep, stepsComponents } = useSteps();
 </script>
 <template>
-  <div class="border border-teal-500 px-2 w-full flex flex-col justify-between bg-magnolia md:bg-white " >
-
+  <div
+    class="w-full flex flex-col justify-between md:bg-white h-full md:p-4"
+  >
     <KeepAlive>
-      <component :is="stepsComponents[currentStep]"  />
+      <div class="absolute inset-4 mt-28 md:mt-0 max-w-6xl mx-auto md:static">
+        <component :is="stepsComponents[currentStep]" />
+      </div>
     </KeepAlive>
     <Navigation />
   </div>
 </template>
 
-/*
-todo:
- --Navigation Button next and Prev
-styles navigation and container
-Personal Info step
-base input
-como validar input con vue o librerias,
+/* todo:
+ componente para step > slot para formulario
+ base input
+ como validar input con vue o librerias,
 
-
-*/
+  */
