@@ -1,25 +1,35 @@
 <script setup lang="ts">
 import Navigation from "./Navigation.vue";
 import { useSteps } from "../composables/steps";
+import { Form } from "vee-validate";
+import { reactive, ref } from 'vue';
 
-const { currentStep, stepsComponents } = useSteps();
+const { currentStep, stepsComponents, nextStep, currentSchema, updateForm, formData } = useSteps();
+
+
+function handleSubmit(values: any) {
+  updateForm(values)
+  nextStep()
+}
+
+
 </script>
 <template>
-  <div
-    class="w-full flex flex-col justify-between md:bg-white h-full md:p-4"
+    <Form
+    :validation-schema="currentSchema"
+    keep-values
+    :initial-values="formData"
+    @submit="handleSubmit"
+    class="w-full flex flex-col justify-between md:bg-white h-full md:py-10"
   >
-    <KeepAlive>
-      <div class="absolute inset-4 mt-28 md:mt-0 max-w-6xl mx-auto md:static">
-        <component :is="stepsComponents[currentStep]" />
-      </div>
-    </KeepAlive>
-    <Navigation />
-  </div>
+    <div class="absolute inset-4 mt-28 md:mt-0 md:max-w-xl md:static">
+
+      <KeepAlive>
+        <component :is="stepsComponents[currentStep]"  />
+      </KeepAlive>
+      
+      <Navigation class="md:max-w-xl md:mx-auto md:px-12"/>
+    </div>
+  </Form>
+
 </template>
-
-/* todo:
- componente para step > slot para formulario
- base input
- como validar input con vue o librerias,
-
-  */
