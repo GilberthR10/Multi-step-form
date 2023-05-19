@@ -1,6 +1,31 @@
 # Multi-step-form-vue
 
-This template should help get you started developing with Vue 3 in Vite.
+This is a solution to the [Multi-step form challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/multistep-form-YVAnSdqQBJ). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
+made with "pinia": "^2.0.32", "vee-validate": "^4.8.6", "vue": "^3.2.47", "yup": "^0.32.11" TypeScript
+
+## Overview
+
+### The challenge
+
+Users should be able to:
+
+- Complete each step of the sequence
+- Go back to a previous step to update their selections
+- See a summary of their selections on the final step and confirm their order
+- View the optimal layout for the interface depending on their device's screen size
+- See hover and focus states for all interactive elements on the page
+- Receive form validation messages if:
+  - A field has been missed
+  - The email address is not formatted correctly
+  - A step is submitted, but no selection has been made
+
+## Desktop Design
+
+![Alt text](/src/assets/design/active-states-step-1.jpg)
+
+## Mobile Design Step 2
+
+![Alt text](/src/assets/design/mobile-design-step-2-yearly.jpg)
 
 ## Recommended IDE Setup
 
@@ -13,8 +38,8 @@ TypeScript cannot handle type information for `.vue` imports by default, so we r
 If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
 
 1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
+   1. Run `Extensions: Show Built-in Extensions` from VSCode's command palette
+   2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
 2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
 
 ## Customize configuration

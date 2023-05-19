@@ -1,34 +1,36 @@
 <script setup lang="ts">
-import { useSteps } from "@/composables/steps";
+import { useSteps } from '@/composables/steps'
+import { computed } from 'vue'
 
-const { prevStep, disabledNextStep, disabledPrevStep } = useSteps();
+const {
+  prevStep,
+  disabledNextStep,
+  disabledPrevStep,
+  currentStep,
+  stepComponentsLength,
+} = useSteps()
 
-
-
+const showConfirm = computed(() => currentStep.value === 3)
 </script>
 <template>
-  <div class="bg-white w-full flex justify-between items-center px-2.5 py-5 fixed inset-0 top-auto shadow-md md:shadow-none md:absolute md:px-1.5">
+  <div
+    class="fixed inset-0 top-auto flex w-full items-center justify-between bg-white px-2.5 py-5 shadow-md md:absolute md:px-1.5 md:shadow-none"
+  >
     <button
       type="button"
       v-show="!disabledPrevStep"
       @click="prevStep"
-      class="px-5 py-2.5 font-bold rounded-md text-cool-gray"
+      class="rounded-md px-5 py-2.5 font-bold text-cool-gray"
     >
       Go Back
     </button>
     <button
       type="submit"
       v-show="!disabledNextStep"
-      class="px-5 py-2.5 bg-marine-blue font-bold rounded-md text-white ml-auto md:mr-2.5"
+      class="ml-auto rounded-md bg-marine-blue px-5 py-2.5 font-bold text-white md:mr-2.5"
+      :class="{ 'bg-purplish-blue': showConfirm }"
     >
-      Next Step
-    </button>
-    <button
-      type="submit"
-      v-show="disabledNextStep"
-      class="px-5 py-2.5 bg-purplish-blue font-medium rounded-md text-white ml-auto md:mr-2.5"
-    >
-      Confirm
+      {{ showConfirm ? 'Confirm' : 'Next Step' }}
     </button>
   </div>
 </template>

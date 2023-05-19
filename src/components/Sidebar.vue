@@ -1,19 +1,19 @@
 <script setup lang="ts">
-import RoundedButton from "./base/RoundedButton.vue";
-import { useSteps } from "../composables/steps";
+import RoundedButton from './base/RoundedButton.vue'
+import { useSteps } from '../composables/steps'
 
-const { currentStep, stepComponentsLength } = useSteps();
-const sideBar = ["Your Info", "Select Plan", "Add-Ons", "Summary"];
+const { currentStep, stepComponentsLength } = useSteps()
+const sideBar = ['Your Info', 'Select Plan', 'Add-Ons', 'Summary']
 </script>
 <template>
   <div
-    class="bg-sidebar-mobile md:bg-sidebar-desktop bg-cover bg-no-repeat h-52 md:h-full p-5 md:rounded-xl md:w-1/3"
+    class="h-52 bg-sidebar-mobile bg-cover bg-no-repeat p-5 md:h-full md:w-1/3 md:rounded-xl md:bg-sidebar-desktop"
   >
     <div
-      class="flex space-x-6 items-center justify-center mt-10 md:flex-col md:space-x-0 md:space-y-8 md:items-start"
+      class="mt-10 flex items-center justify-center space-x-6 md:flex-col md:items-start md:space-x-0 md:space-y-8"
     >
       <RoundedButton
-        v-for="(_, comp) in stepComponentsLength"
+        v-for="(_, comp) in stepComponentsLength - 1"
         :key="comp"
         :active="comp === currentStep"
         :step="comp + 1"
@@ -22,5 +22,3 @@ const sideBar = ["Your Info", "Select Plan", "Add-Ons", "Summary"];
     </div>
   </div>
 </template>
-
-<style scoped></style>

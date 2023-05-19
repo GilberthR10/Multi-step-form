@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "prettier": "prettier --write \"src/**/*.ts\" \"src/**/*.vue\"",
     "dev": "vite",
     "build": "run-p type-check build-only",
     "preview": "vite preview",
@@ -31,6 +32,8 @@
     "npm-run-all": "^4.1.5",
     "postcss": "^8.4.22",
     "start-server-and-test": "^2.0.0",
+    "prettier": "2.8.7",
+    "prettier-plugin-tailwindcss": "^0.2.7",
     "tailwindcss": "^3.3.1",
     "typescript": "~4.8.4",
     "vite": "^4.1.4",

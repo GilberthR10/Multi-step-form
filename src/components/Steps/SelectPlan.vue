@@ -1,33 +1,32 @@
 <script setup lang="ts">
-import ArcadeIcon from "@/assets/icon-arcade.svg";
-import ProIcon from "@/assets/icon-pro.svg";
-import advanceIcon from "@/assets/icon-advanced.svg";
-import InputPlan from "../base/InputPlan.vue";
-import { useField } from "vee-validate";
-import { ref } from "vue";
+import ArcadeIcon from '@/assets/icon-arcade.svg'
+import ProIcon from '@/assets/icon-pro.svg'
+import advanceIcon from '@/assets/icon-advanced.svg'
+import InputPlan from '../base/InputPlan.vue'
+import { useField } from 'vee-validate'
+import { ref } from 'vue'
 
-const { checked, handleChange, value } = useField("planLength", undefined, {
-  type: "checkbox",
+const { checked, handleChange, value } = useField('planLength', undefined, {
+  type: 'checkbox',
   checkedValue: true,
   uncheckedValue: false,
-});
-const showYearlyContent = ref<string>("monthly");
-const yearlyContent = ref<boolean>(false);
+})
+const showYearlyContent = ref<string>('monthly')
+const yearlyContent = ref<boolean>(false)
 
 const handleChecked = () => {
-  handleChange(!value.value);
-  showYearlyContent.value = value.value ? "yearly" : "monthly";
+  handleChange(!value.value)
+  showYearlyContent.value = value.value ? 'yearly' : 'monthly'
   yearlyContent.value = value.value
-};
+}
 
 interface PlanOption {
   [key: string]: {
-    [key: string]: number;
-  };
+    [key: string]: number
+  }
 }
 
 const planOptions: PlanOption = {
-
   Arcade: {
     monthly: 9,
     yearly: 90,
@@ -52,17 +51,17 @@ const planOptions: PlanOption = {
     monthly: 2,
     yearly: 20,
   },
-};
+}
 
-const promo = "2 months free"
+const promo = '2 months free'
 </script>
 <template>
-  <div class="bg-white rounded-lg p-4 md:p-0 shadow-lg md:shadow-none">
+  <div class="rounded-lg bg-white p-4 shadow-lg md:p-0 md:shadow-none">
     <div class="flex flex-col">
-      <h1 class="text-marine-blue font-bold text-2xl pt-10 md:pt-0">
+      <h1 class="pt-10 text-2xl font-bold text-marine-blue md:pt-0">
         Select your plan
       </h1>
-      <p class="text-cool-gray font-normal text-xl my-8">
+      <p class="my-8 text-xl font-normal text-cool-gray">
         You have the option of monthly or yearly billing.
       </p>
       <div class="flex flex-col gap-4 md:flex-row">
@@ -77,9 +76,9 @@ const promo = "2 months free"
         />
         <InputPlan
           name="plan"
-          value="Advance"
+          value="Advanced"
           :icon="advanceIcon"
-          plan="Advance"
+          plan="Advanced"
           :price="planOptions.Advanced[showYearlyContent]"
           :promo="promo"
           :yearly="yearlyContent"
@@ -96,10 +95,10 @@ const promo = "2 months free"
       </div>
 
       <div
-        class="bg-pastel-blue/10 p-4 my-5 rounded-md flex justify-center space-x-6"
+        class="my-5 flex justify-center space-x-6 rounded-md bg-pastel-blue/10 p-4"
       >
-        <span class="text-cool-gray font-semibold">Monthly</span>
-        <label for="toggle" class="flex items-center cursor-pointer">
+        <span class="font-semibold text-cool-gray">Monthly</span>
+        <label for="toggle" class="flex cursor-pointer items-center">
           <!-- toggle -->
           <div class="relative">
             <!-- input -->
@@ -111,14 +110,14 @@ const promo = "2 months free"
               class="sr-only"
             />
             <!-- line -->
-            <div class="block bg-marine-blue w-10 h-6 rounded-full"></div>
+            <div class="block h-6 w-10 rounded-full bg-marine-blue"></div>
             <!-- dot -->
             <div
-              class="dot absolute left-1 top-1 bg-white w-4 h-4 rounded-full transition"
+              class="dot absolute left-1 top-1 h-4 w-4 rounded-full bg-white transition"
             ></div>
           </div>
         </label>
-        <span class="text-cool-gray font-semibold">Yearly</span>
+        <span class="font-semibold text-cool-gray">Yearly</span>
       </div>
     </div>
   </div>
