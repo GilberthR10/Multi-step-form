@@ -17,9 +17,19 @@
       <span class="text-cool-gray"
         >${{ price }}/{{ yearly ? 'yr' : 'mo' }}</span
       >
-      <span v-show="yearly" class="font-medium text-marine-blue">{{
-        promo
-      }}</span>
+      <Transition
+        mode="out-in"
+        enter-from-class="opacity-0"
+        enter-leave-class="opacity-100"
+        enter-active-class="transition-opacity duration-300"
+        leave-from-class="opacity-100"
+        leave-to-class="opacity-0"
+        leave-active-class="transition-opacity duration-300"
+      >
+        <span v-show="yearly" class="font-medium text-marine-blue">{{
+          promo
+        }}</span>
+      </Transition>
     </div>
   </label>
 </template>

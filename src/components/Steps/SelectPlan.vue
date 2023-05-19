@@ -11,13 +11,11 @@ const { checked, handleChange, value } = useField('planLength', undefined, {
   checkedValue: true,
   uncheckedValue: false,
 })
-const showYearlyContent = ref<string>('monthly')
-const yearlyContent = ref<boolean>(false)
+const showMonthlyOrYearlyPrices = ref<string>('monthly')
 
 const handleChecked = () => {
   handleChange(!value.value)
-  showYearlyContent.value = value.value ? 'yearly' : 'monthly'
-  yearlyContent.value = value.value
+  showMonthlyOrYearlyPrices.value = value.value ? 'yearly' : 'monthly'
 }
 
 interface PlanOption {
@@ -70,27 +68,27 @@ const promo = '2 months free'
           value="Arcade"
           :icon="ArcadeIcon"
           plan="Arcade"
-          :price="planOptions.Arcade[showYearlyContent]"
+          :price="planOptions.Arcade[showMonthlyOrYearlyPrices]"
           :promo="promo"
-          :yearly="yearlyContent"
+          :yearly="value"
         />
         <InputPlan
           name="plan"
           value="Advanced"
           :icon="advanceIcon"
           plan="Advanced"
-          :price="planOptions.Advanced[showYearlyContent]"
+          :price="planOptions.Advanced[showMonthlyOrYearlyPrices]"
           :promo="promo"
-          :yearly="yearlyContent"
+          :yearly="value"
         />
         <InputPlan
           name="plan"
           value="Pro"
           :icon="ProIcon"
           plan="Pro"
-          :price="planOptions.Pro[showYearlyContent]"
+          :price="planOptions.Pro[showMonthlyOrYearlyPrices]"
           :promo="promo"
-          :yearly="yearlyContent"
+          :yearly="value"
         />
       </div>
 
@@ -104,6 +102,7 @@ const promo = '2 months free'
             <!-- input -->
             <input
               @change="handleChecked"
+              :checked="checked"
               name="planLength"
               type="checkbox"
               id="toggle"
