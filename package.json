@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "run-p type-check build-only",
     "preview": "vite preview",
-    "build-only": "vite build"
+    "build-only": "vite build",
+    "type-check": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false"
   },
   "dependencies": {
     "pinia": "^2.0.32",
